@@ -1,6 +1,7 @@
 # Báo cáo Phân tích Thất bại (Failure Analysis Report)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 1. Tổng quan Benchmark
 
 ### Kết quả SAU tối ưu (Agent V2 Optimized)
@@ -134,6 +135,29 @@ Nhận định nhanh:
 
 ## 2) Failure clustering (phân cụm lỗi)
 
+=======
+## 1) Tổng quan benchmark (run mới nhất)
+- Tổng số test cases: **56**
+- Pass/Fail/Error: **35 / 21 / 0**
+- Avg Judge Score: **3.5482 / 5**
+- Retrieval quality:
+  - **Hit@1 = 0.3036**
+  - **Hit@3 = 0.6786**
+  - **Hit@5 = 0.8214**
+  - **MRR = 0.5030**
+- RAGAS quality:
+  - **Faithfulness = 0.8054**
+  - **Relevancy = 0.5696**
+  - **Context relevancy = 0.7929**
+
+Nhận định nhanh:
+- Faithfulness cao nhưng relevancy thấp cho thấy hệ thống thường "nói đúng theo context đang có", nhưng context hoặc lựa chọn nội dung trả lời chưa đúng trọng tâm câu hỏi.
+
+---
+
+## 2) Failure clustering (phân cụm lỗi)
+
+>>>>>>> dc23098208ded53df407f8490dbe3f8a5b9ad4b7
 ### Cụm A - Retrieval miss hoàn toàn
 - Quy tắc cụm: `hit_rate_at_5 == 0`
 - Số lượng: **8/21 fails (38.1%)**
@@ -202,4 +226,7 @@ Ghi chú về ingestion:
 - P1 (Retrieval): thêm query rewriting + adversarial intent filter trước truy xuất.
 - P2 (Chunking): chuyển sang semantic chunking, giảm chunk overlap mù và thêm parent-child chunk.
 - P2 (Ranking): thêm reranker cho top-k trước khi đưa vào answer generation.
+<<<<<<< HEAD
 >>>>>>> 1b84292e74f6a3e133dc79730f5014111691218f
+=======
+>>>>>>> dc23098208ded53df407f8490dbe3f8a5b9ad4b7
