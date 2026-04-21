@@ -1,0 +1,6 @@
+{
+  "id": "doc_004",
+  "title": "Hướng dẫn sử dụng VPN",
+  "content": "Nhân viên làm việc từ xa cần kết nối VPN để truy cập tài nguyên nội bộ. Cài đặt VPN client từ portal.company.com và sử dụng mật khẩu AD để đăng nhập. Sau 3 lần nhập sai mật khẩu, tài khoản sẽ bị khóa tạm thời 30 phút. VPN hỗ trợ các thiết bị: Windows, macOS, Linux, iOS, Android. Khi gặp sự cố kết nối VPN, liên hệ IT qua Helpdesk. Tốc độ VPN phụ thuộc vào internet của nhân viên. Khuyến nghị sử dụng internet băng thông rộng ổn định.",
+  "category": "it_support"
+}

@@ -3,31 +3,47 @@ import json
 import os
 import time
 from engine.runner import BenchmarkRunner
+from engine.retrieval_eval import RetrievalEvaluator
 from agent.main_agent import MainAgent
 
-# Giả lập các components Expert
+retrieval_evaluator = RetrievalEvaluator()
+
+
 class ExpertEvaluator:
-    async def score(self, case, resp): 
-        # Giả lập tính toán Hit Rate và MRR
+    async def score(self, case, resp):
+        expected_ids = case.get("expected_retrieval_ids", [])
+        retrieved_ids = resp.get("retrieved_ids", [])
+
+        eval_result = await retrieval_evaluator.evaluate_single(case, resp)
+
         return {
-            "faithfulness": 0.9, 
+            "faithfulness": 0.9,
             "relevancy": 0.8,
-            "retrieval": {"hit_rate": 1.0, "mrr": 0.5}
+            "retrieval": {
+                "hit_rate_at_1": eval_result["hit_rate_at_1"],
+                "hit_rate_at_3": eval_result["hit_rate_at_3"],
+                "hit_rate_at_5": eval_result["hit_rate_at_5"],
+                "mrr": eval_result["mrr"],
+            },
         }
 
+
 class MultiModelJudge:
-    async def evaluate_multi_judge(self, q, a, gt): 
+    async def evaluate_multi_judge(self, q, a, gt):
         return {
-            "final_score": 4.5, 
+            "final_score": 4.5,
             "agreement_rate": 0.8,
-            "reasoning": "Cả 2 model đồng ý đây là câu trả lời tốt."
+            "reasoning": "Cả 2 model đồng ý đây là câu trả lời tốt.",
         }
+
 
 async def run_benchmark_with_results(agent_version: str):
     print(f"🚀 Khởi động Benchmark cho {agent_version}...")
 
     if not os.path.exists("data/golden_set.jsonl"):
-        print("❌ Thiếu data/golden_set.jsonl. Hãy chạy 'python data/synthetic_gen.py' trước.")
+        print(
+            "❌ Thiếu data/golden_set.jsonl. Hãy chạy 'python data/synthetic_gen.py' trước."
+        )
         return None, None
 
     with open("data/golden_set.jsonl", "r", encoding="utf-8") as f:
@@ -42,25 +58,45 @@ async def run_benchmark_with_results(agent_version: str):
 
     total = len(results)
     summary = {
-        "metadata": {"version": agent_version, "total": total, "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")},
+        "metadata": {
+            "version": agent_version,
+            "total": total,
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        },
         "metrics": {
             "avg_score": sum(r["judge"]["final_score"] for r in results) / total,
-            "hit_rate": sum(r["ragas"]["retrieval"]["hit_rate"] for r in results) / total,
-            "agreement_rate": sum(r["judge"]["agreement_rate"] for r in results) / total
-        }
+            "hit_rate_at_1": sum(
+                r["ragas"]["retrieval"]["hit_rate_at_1"] for r in results
+            )
+            / total,
+            "hit_rate_at_3": sum(
+                r["ragas"]["retrieval"]["hit_rate_at_3"] for r in results
+            )
+            / total,
+            "hit_rate_at_5": sum(
+                r["ragas"]["retrieval"]["hit_rate_at_5"] for r in results
+            )
+            / total,
+            "mrr": sum(r["ragas"]["retrieval"]["mrr"] for r in results) / total,
+            "agreement_rate": sum(r["judge"]["agreement_rate"] for r in results)
+            / total,
+        },
     }
+    print(f"✅ Hoàn thành Benchmark cho {agent_version}. Tổng số test case: {total}, Điểm trung bình: {summary}")
     return results, summary
+
 
 async def run_benchmark(version):
     _, summary = await run_benchmark_with_results(version)
     return summary
 
+
 async def main():
     v1_summary = await run_benchmark("Agent_V1_Base")
-    
+
     # Giả lập V2 có cải tiến (để test logic)
     v2_results, v2_summary = await run_benchmark_with_results("Agent_V2_Optimized")
-    
+
     if not v1_summary or not v2_summary:
         print("❌ Không thể chạy Benchmark. Kiểm tra lại data/golden_set.jsonl.")
         return
@@ -81,6 +117,7 @@ async def main():
         print("✅ QUYẾT ĐỊNH: CHẤP NHẬN BẢN CẬP NHẬT (APPROVE)")
     else:
         print("❌ QUYẾT ĐỊNH: TỪ CHỐI (BLOCK RELEASE)")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

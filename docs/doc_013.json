@@ -1,0 +1,6 @@
+{
+  "id": "doc_013",
+  "title": "Quy trình xử lý hardware lỗi",
+  "content": "Hardware lỗi cần được báo cáo qua Helpdesk với serial number và mô tả lỗi. IT sẽ diagnose trong 24 giờ và thay thế nếu cần. Laptop được bảo hành 3 năm, mouse và keyboard 1 năm. Nếu hardware hỏng do lỗi người dùng (rơi, đổ nước), chi phí sửa chữa do nhân viên chịu. Đối với desktop, IT sẽ cung cấp máy thay thế tạm thời. Sau khi sửa xong, IT sẽ thông báo và lắp đặt lại. Nhân viên không được tự sửa chữa hardware.",
+  "category": "it_support"
+}

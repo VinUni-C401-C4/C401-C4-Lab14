@@ -1,0 +1,6 @@
+{
+  "id": "doc_017",
+  "title": "Hướng dẫn sử dụng Slack",
+  "content": "Slack workspace: company.slack.com. Sử dụng channels theo department và project. Direct message cho matters riêng tư. Response time mong đợi: trong ngày làm việc. Các channels chính: #general, #announcements, #help-it, #help-hr. Khi mention ai đó, chỉ mention khi cần gấp. Không gửi tin nhắn quá dài, chia thành nhiều tin nhắn ngắn. Sử dụng emoji reactions để acknowledge tin nhắn. Status để rõ ràng: Available, In meeting, On leave. Slack tích hợp với nhiều tools: Jira, GitHub, Google Calendar.",
+  "category": "it_support"
+}

@@ -18,6 +18,8 @@ class BenchmarkRunner:
         
         # 2. Chạy RAGAS metrics
         ragas_scores = await self.evaluator.score(test_case, response)
+        # print(f"RAGAS scores for '{test_case['question']}': {ragas_scores}")
+        # print(f"Agent response: {response['answer']}")
         
         # 3. Chạy Multi-Judge
         judge_result = await self.judge.evaluate_multi_judge(
