@@ -1,0 +1,6 @@
+{
+  "id": "doc_002",
+  "title": "Quy trình báo cáo sự cố IT",
+  "content": "Khi gặp sự cố IT, nhân viên cần tạo ticket qua hệ thống Helpdesk. Thời gian phản hồi tối đa là 4 giờ cho sự cố thường và 1 giờ cho sự cố khẩn cấp. Sự cố khẩn cấp bao gồm: mất hoàn toàn kết nối mạng, máy tính không thể khởi động, mất dữ liệu quan trọng. Khi tạo ticket, cần cung cấp: mô tả chi tiết sự cố, thời điểm xảy ra, ảnh chụp màn hình (nếu có), và số điện thoại liên hệ. Nhân viên có thể theo dõi trạng thái ticket qua email hoặc portal.",
+  "category": "it_support"
+}

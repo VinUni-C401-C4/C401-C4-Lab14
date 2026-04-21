@@ -1,0 +1,6 @@
+{
+  "id": "doc_005",
+  "title": "Quy định bảo mật thông tin",
+  "content": "Mật khẩu phải có ít nhất 12 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt. Mật khẩu phải được thay đổi mỗi 90 ngày và không được sử dụng lại 5 mật khẩu gần nhất. Không được chia sẻ mật khẩu qua email hoặc chat. Nếu nghi ngờ mật khẩu bị lộ, phải đổi ngay lập tức và báo cáo cho IT Security. Laptop phải có mật khẩu khóa màn hình và mã hóa ổ đĩa. Không được cài đặt phần mềm không được phê duyệt. Tuân thủ quy định GDPR khi xử lý dữ liệu khách hàng.",
+  "category": "security"
+}
