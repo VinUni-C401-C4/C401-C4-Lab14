@@ -2,64 +2,64 @@
   "metadata": {
     "version": "Agent_V2_Optimized",
     "total": 56,
-    "timestamp": "2026-04-21 15:11:15",
+    "timestamp": "2026-04-21 15:23:10",
     "pipeline": "RAGAS + Multi-Judge Consensus"
   },
   "metrics": {
-    "avg_score": 4.3143,
+    "avg_score": 4.3093,
     "hit_rate": 0.8214,
     "hit_rate_at_1": 0.3571,
     "hit_rate_at_3": 0.8214,
     "hit_rate_at_5": 0.9107,
-    "mrr": 0.5869,
+    "mrr": 0.5848,
     "precision_at_5": 0.2,
     "recall_at_5": 0.7946,
-    "ndcg_at_10": 0.5355,
-    "faithfulness": 0.8268,
+    "ndcg_at_10": 0.5356,
+    "faithfulness": 0.8196,
     "relevancy": 0.7804,
     "context_relevancy": 0.6643,
-    "agreement_rate": 1.0
+    "agreement_rate": 0.9643
   },
   "performance": {
-    "total_time_seconds": 106.92,
+    "total_time_seconds": 85.06,
     "total_cases": 56,
     "passed": 49,
     "failed": 7,
     "errors": 0,
-    "throughput_cases_per_sec": 0.52,
+    "throughput_cases_per_sec": 0.66,
     "latency_ms": {
-      "avg": 6618.22,
-      "min": 3536.01,
-      "max": 24186.59,
-      "p50": 5249.18,
-      "p95": 16153.66,
-      "p99": 24186.59
+      "avg": 6126.76,
+      "min": 3162.5,
+      "max": 17601.54,
+      "p50": 5129.72,
+      "p95": 14651.74,
+      "p99": 17601.54
     },
     "error_details": []
   },
   "cost": {
-    "total_tokens": 96696,
-    "total_cost_usd": 0.123728,
-    "avg_cost_per_eval": 0.001105,
+    "total_tokens": 97489,
+    "total_cost_usd": 0.124088,
+    "avg_cost_per_eval": 0.001108,
     "judge_cost": {
       "total_tokens": {
         "prompt": 49886,
-        "completion": 8785,
-        "total": 58671
+        "completion": 8871,
+        "total": 58757
       },
-      "total_cost_usd": 0.114102,
-      "avg_cost_per_eval": 0.002038,
+      "total_cost_usd": 0.114239,
+      "avg_cost_per_eval": 0.00204,
       "total_evaluations": 56,
       "api_available": true
     },
     "ragas_cost": {
       "total_tokens": {
-        "prompt": 29308,
-        "completion": 8717,
-        "total": 38025
+        "prompt": 29755,
+        "completion": 8977,
+        "total": 38732
       },
-      "total_cost_usd": 0.009626,
-      "avg_cost_per_eval": 0.000172,
+      "total_cost_usd": 0.009849,
+      "avg_cost_per_eval": 0.000176,
       "total_evaluations": 56,
       "api_available": true
     },
@@ -76,7 +76,7 @@
       "gpt-4o"
     ],
     "cohens_kappa": {
-      "kappa": 0.4732,
+      "kappa": 0.454,
       "interpretation": "Moderate agreement",
       "num_evaluations": 56,
       "models_compared": [
@@ -90,16 +90,16 @@
     "easy": {
       "count": 19,
       "pass": 17,
-      "total_score": 85.20000000000002,
+      "total_score": 85.18,
       "pass_rate": 0.8947,
       "avg_score": 4.48
     },
     "medium": {
       "count": 19,
       "pass": 16,
-      "total_score": 78.9,
+      "total_score": 79.4,
       "pass_rate": 0.8421,
-      "avg_score": 4.15
+      "avg_score": 4.18
     },
     "hard": {
       "count": 8,
@@ -118,95 +118,95 @@
     "edge": {
       "count": 5,
       "pass": 5,
-      "total_score": 23.4,
+      "total_score": 22.64,
       "pass_rate": 1.0,
-      "avg_score": 4.68
+      "avg_score": 4.53
     }
   },
   "regression": {
-    "decision": "BLOCK",
-    "reason": "Overall score decreased by 0.01",
-    "overall_delta": -0.0121,
+    "decision": "APPROVE",
+    "reason": "All metrics stable or improved (Δ = +1.20)",
+    "overall_delta": 1.2004,
     "regressions": [],
     "warnings": [],
     "per_metric_deltas": {
+      "ndcg_at_10": {
+        "v1": 0.4424,
+        "v2": 0.5356,
+        "delta_abs": 0.0932,
+        "delta_pct": 21.07
+      },
       "hit_rate": {
-        "v1": 0.8214,
+        "v1": 0.7143,
         "v2": 0.8214,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "recall_at_5": {
-        "v1": 0.7946,
-        "v2": 0.7946,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "hit_rate_at_3": {
-        "v1": 0.8214,
-        "v2": 0.8214,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "precision_at_5": {
-        "v1": 0.2,
-        "v2": 0.2,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "avg_score": {
-        "v1": 4.3264,
-        "v2": 4.3143,
-        "delta_abs": -0.0121,
-        "delta_pct": -0.28
+        "delta_abs": 0.1071,
+        "delta_pct": 14.99
       },
       "hit_rate_at_1": {
-        "v1": 0.3571,
+        "v1": 0.3036,
         "v2": 0.3571,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "mrr": {
-        "v1": 0.5869,
-        "v2": 0.5869,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "ndcg_at_10": {
-        "v1": 0.5355,
-        "v2": 0.5355,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
-      },
-      "faithfulness": {
-        "v1": 0.8161,
-        "v2": 0.8268,
-        "delta_abs": 0.0107,
-        "delta_pct": 1.31
-      },
-      "hit_rate_at_5": {
-        "v1": 0.9107,
-        "v2": 0.9107,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
+        "delta_abs": 0.0535,
+        "delta_pct": 17.62
       },
       "relevancy": {
-        "v1": 0.7857,
+        "v1": 0.4411,
         "v2": 0.7804,
-        "delta_abs": -0.0053,
-        "delta_pct": -0.67
+        "delta_abs": 0.3393,
+        "delta_pct": 76.92
+      },
+      "precision_at_5": {
+        "v1": 0.15,
+        "v2": 0.2,
+        "delta_abs": 0.05,
+        "delta_pct": 33.33
+      },
+      "mrr": {
+        "v1": 0.4881,
+        "v2": 0.5848,
+        "delta_abs": 0.0967,
+        "delta_pct": 19.81
       },
       "agreement_rate": {
-        "v1": 0.9821,
-        "v2": 1.0,
-        "delta_abs": 0.0179,
-        "delta_pct": 1.82
+        "v1": 1.0,
+        "v2": 0.9643,
+        "delta_abs": -0.0357,
+        "delta_pct": -3.57
+      },
+      "hit_rate_at_3": {
+        "v1": 0.7143,
+        "v2": 0.8214,
+        "delta_abs": 0.1071,
+        "delta_pct": 14.99
+      },
+      "recall_at_5": {
+        "v1": 0.622,
+        "v2": 0.7946,
+        "delta_abs": 0.1726,
+        "delta_pct": 27.75
+      },
+      "avg_score": {
+        "v1": 3.1089,
+        "v2": 4.3093,
+        "delta_abs": 1.2004,
+        "delta_pct": 38.61
       },
       "context_relevancy": {
-        "v1": 0.6643,
+        "v1": 0.8274,
         "v2": 0.6643,
-        "delta_abs": 0.0,
-        "delta_pct": 0.0
+        "delta_abs": -0.1631,
+        "delta_pct": -19.71
+      },
+      "hit_rate_at_5": {
+        "v1": 0.7143,
+        "v2": 0.9107,
+        "delta_abs": 0.1964,
+        "delta_pct": 27.5
+      },
+      "faithfulness": {
+        "v1": 0.8268,
+        "v2": 0.8196,
+        "delta_abs": -0.0072,
+        "delta_pct": -0.87
       }
     }
   }
