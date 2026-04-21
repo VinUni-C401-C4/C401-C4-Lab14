@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "version": "Agent_V2_Optimized",
+    "total": 56,
+    "timestamp": "2026-04-21 15:11:15",
+    "pipeline": "RAGAS + Multi-Judge Consensus"
+  },
+  "metrics": {
+    "avg_score": 4.3143,
+    "hit_rate": 0.8214,
+    "hit_rate_at_1": 0.3571,
+    "hit_rate_at_3": 0.8214,
+    "hit_rate_at_5": 0.9107,
+    "mrr": 0.5869,
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.7946,
+    "ndcg_at_10": 0.5355,
+    "faithfulness": 0.8268,
+    "relevancy": 0.7804,
+    "context_relevancy": 0.6643,
+    "agreement_rate": 1.0
+  },
+  "performance": {
+    "total_time_seconds": 106.92,
+    "total_cases": 56,
+    "passed": 49,
+    "failed": 7,
+    "errors": 0,
+    "throughput_cases_per_sec": 0.52,
+    "latency_ms": {
+      "avg": 6618.22,
+      "min": 3536.01,
+      "max": 24186.59,
+      "p50": 5249.18,
+      "p95": 16153.66,
+      "p99": 24186.59
+    },
+    "error_details": []
+  },
+  "cost": {
+    "total_tokens": 96696,
+    "total_cost_usd": 0.123728,
+    "avg_cost_per_eval": 0.001105,
+    "judge_cost": {
+      "total_tokens": {
+        "prompt": 49886,
+        "completion": 8785,
+        "total": 58671
+      },
+      "total_cost_usd": 0.114102,
+      "avg_cost_per_eval": 0.002038,
+      "total_evaluations": 56,
+      "api_available": true
+    },
+    "ragas_cost": {
+      "total_tokens": {
+        "prompt": 29308,
+        "completion": 8717,
+        "total": 38025
+      },
+      "total_cost_usd": 0.009626,
+      "avg_cost_per_eval": 0.000172,
+      "total_evaluations": 56,
+      "api_available": true
+    },
+    "cost_optimisation_suggestions": [
+      "Sử dụng gpt-4o-mini thay vì gpt-4o cho RAGAS metrics (giảm ~90% chi phí)",
+      "Cache kết quả Judge cho các câu hỏi trùng lặp",
+      "Giảm max_tokens cho Judge response (300 → 150) nếu reasoning không cần chi tiết",
+      "Batch API calls nếu OpenAI hỗ trợ batch endpoint"
+    ]
+  },
+  "multi_judge": {
+    "models_used": [
+      "gpt-4o-mini",
+      "gpt-4o"
+    ],
+    "cohens_kappa": {
+      "kappa": 0.4732,
+      "interpretation": "Moderate agreement",
+      "num_evaluations": 56,
+      "models_compared": [
+        "gpt-4o-mini",
+        "gpt-4o"
+      ]
+    },
+    "api_mode": "llm"
+  },
+  "difficulty_breakdown": {
+    "easy": {
+      "count": 19,
+      "pass": 17,
+      "total_score": 85.20000000000002,
+      "pass_rate": 0.8947,
+      "avg_score": 4.48
+    },
+    "medium": {
+      "count": 19,
+      "pass": 16,
+      "total_score": 78.9,
+      "pass_rate": 0.8421,
+      "avg_score": 4.15
+    },
+    "hard": {
+      "count": 8,
+      "pass": 8,
+      "total_score": 34.599999999999994,
+      "pass_rate": 1.0,
+      "avg_score": 4.32
+    },
+    "adversarial": {
+      "count": 5,
+      "pass": 3,
+      "total_score": 19.5,
+      "pass_rate": 0.6,
+      "avg_score": 3.9
+    },
+    "edge": {
+      "count": 5,
+      "pass": 5,
+      "total_score": 23.4,
+      "pass_rate": 1.0,
+      "avg_score": 4.68
+    }
+  },
+  "regression": {
+    "decision": "BLOCK",
+    "reason": "Overall score decreased by 0.01",
+    "overall_delta": -0.0121,
+    "regressions": [],
+    "warnings": [],
+    "per_metric_deltas": {
+      "hit_rate": {
+        "v1": 0.8214,
+        "v2": 0.8214,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "recall_at_5": {
+        "v1": 0.7946,
+        "v2": 0.7946,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "hit_rate_at_3": {
+        "v1": 0.8214,
+        "v2": 0.8214,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "precision_at_5": {
+        "v1": 0.2,
+        "v2": 0.2,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "avg_score": {
+        "v1": 4.3264,
+        "v2": 4.3143,
+        "delta_abs": -0.0121,
+        "delta_pct": -0.28
+      },
+      "hit_rate_at_1": {
+        "v1": 0.3571,
+        "v2": 0.3571,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "mrr": {
+        "v1": 0.5869,
+        "v2": 0.5869,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "ndcg_at_10": {
+        "v1": 0.5355,
+        "v2": 0.5355,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "faithfulness": {
+        "v1": 0.8161,
+        "v2": 0.8268,
+        "delta_abs": 0.0107,
+        "delta_pct": 1.31
+      },
+      "hit_rate_at_5": {
+        "v1": 0.9107,
+        "v2": 0.9107,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      },
+      "relevancy": {
+        "v1": 0.7857,
+        "v2": 0.7804,
+        "delta_abs": -0.0053,
+        "delta_pct": -0.67
+      },
+      "agreement_rate": {
+        "v1": 0.9821,
+        "v2": 1.0,
+        "delta_abs": 0.0179,
+        "delta_pct": 1.82
+      },
+      "context_relevancy": {
+        "v1": 0.6643,
+        "v2": 0.6643,
+        "delta_abs": 0.0,
+        "delta_pct": 0.0
+      }
+    }
+  }
+}
